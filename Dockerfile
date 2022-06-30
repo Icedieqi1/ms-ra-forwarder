@@ -5,8 +5,8 @@ WORKDIR /app
 COPY ./ ./
 RUN npm install
 
-EXPOSE 3000
+ENV TOKEN= LOG_LEVEL=info EXPOSE_PORT=3000
 
-ENV TOKEN= LOG_LEVEL=info
+EXPOSE $EXPOSE_PORT
 
-ENTRYPOINT [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start" ]
